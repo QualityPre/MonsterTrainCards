@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="scriptjs.js" defer></script>
+    <title>Monster</title>
+  </head>
+  <body>
+    <header>
+      <div class="dropdown" data-dropdown>
+        <button class="link" data-dropdown-button>Cards</button>
+        <div class="dropdown-menu information-grid">
+           <div>
+             <div class="dropdown-heading">Monster Cards</div>
+            <div class="dropdown-links">
+              <button class="link btn--monster--cards--all" data-all="monster">All</button>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown-heading">Monster Cards By rarity</div>
+            <div class="dropdown-links">
+              <button class="link "data-rarity = "1" data-card = "monster" > 1</button>
+              <button class="link "data-rarity = "2" data-card = "monster" > 2</button>
+              <button class="link "data-rarity = "3" data-card = "monster" > 3</button>
+                </div>
+                   </div>
+                   <div>
+                    <div class="dropdown-heading">Spell Cards</div>
+                   <div class="dropdown-links">
+                     <button class="link btn--spell--cards--all" data-all="spell">All</button>
+                       </div>
+                     </div>
+                     <div>
+                       <div class="dropdown-heading">Spell Cards By rarity</div>
+                   <div class="dropdown-links">
+                    <button class="link" data-rarity = "1" data-card = "spell" > 1</button>
+                    <button class="link"data-rarity = "2" data-card = "spell" > 2</button>
+                    
+                       </div>
+                          </div>  
+                          <div>
+                            <div class="dropdown-heading">Spell Cards By cost</div>
+                        <div class="dropdown-links">
+                         <button class="link" data-cost = "0" data-card = "spell" > 0</button>
+                         <button class="link"data-cost= "1" data-card = "spell" > 1</button>
+                         <button class="link" data-cost = "2" data-card = "spell" > 2</button>
+                         <button class="link"data-cost= "3" data-card = "spell" > 3</button>
+                         
+                            </div>
+                               </div>  
+          </div>
+        </div>
+        
+        <div class="dropdown" data-dropdown>
+          <button class="link btn--enemy--cards--all" data-all="enemy" data-dropdown-button>Enemies</button>
+           </div>
+        
+           <div class="dropdown" data-dropdown>
+            <button class="link btn--items--all" data-all="item" data-dropdown-button>Items</button>
+             </div>
+                 
+         
+        
+      </div>
+    </header>
+    <section class="monster--cards">
+      <h1 class="title">Monster Cards</h1>
+
+      <!-- <div class="monster--container">
+        <img class="monster--image" src="/artifact.png" alt="${data.name}" />
+        <div class="monster--card">
+          <div class="monster--info--container">
+            
+            <p class="monster--lore">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quasi magni esse fugit quod culpa dicta quibusdam, qui voluptas, iure nulla dolorem neque odio vero non ea velit magnam explicabo.</p>
+          </div>
+        </div>
+        <button class="toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div> -->
+      <div class="monster--container enemy">
+        <img class="monster--image enemy" src="/artifact.png" alt="${data.name}" />
+        <h2 class="monster--name">The destroyer of worlds</h2>
+        <div class="monster--card">
+          <div class="monster--info--container">
+            <p class="monster--lore description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor aliquid qui dicta illo consequatur? </p>
+            
+            <p class="monster--lore">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio hic beatae fuga blanditiis, reiciendis voluptatem minima doloribus totam recusandae nesciunt aliquam obcaecati corporis ea? Officia doloribus illo magni nulla vero! </p>
+          </div>
+        </div>
+        <button class="toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+
+
+          </section>
+  </body>
+</html>

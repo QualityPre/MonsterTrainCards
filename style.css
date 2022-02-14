@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Mali', sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  background-image: url('/background.jpg');
+  background-repeat: repeat-y;
+
+  background-size: 100vw;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 0 1rem;
+}
+p.description {
+  font-weight: bolder;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 2.6rem;
+  letter-spacing: 0.1rem;
+  padding: 0 3rem;
+}
+/* ///////////////////////////////////////////
+/////////////ICONS///////////////////////////
+//////////////////////////////////////////////*/
+
+.icon {
+  display: inline-block;
+  width: 3.4rem;
+}
+
+.icon--heart {
+  fill: red;
+}
+
+.icon--damage {
+  fill: rgb(153, 44, 175);
+}
+
+/* ///////////////////////////////////////////
+/////////////HEADER///////////////////////////
+//////////////////////////////////////////////*/
+
+header {
+  position: relative;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: baseline;
+  padding: 0.7rem;
+  gap: 5rem;
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-family: inherit;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0;
+}
+.dropdown.active > .link,
+.link:hover {
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-heading {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.3rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 2px 5px 0 regba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  gap: 2.5rem;
+  z-index: 100;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+/* ///////////////////////////////////////////
+/////////////MONSTER CARDS///////////////////////////
+//////////////////////////////////////////////*/
+
+.monster--cards {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 4rem;
+  row-gap: 3rem;
+}
+.title {
+  position: relative;
+  grid-column: 1/-1;
+  font-size: 5rem;
+  color: whitesmoke;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.monster--container {
+  background-color: transparent;
+  border: 0;
+  border-radius: 10px;
+  margin: 0;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.toggle {
+  background-color: grey;
+  border: 0.1rem solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  bottom: 1rem;
+  right: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  transform: translateX(50%);
+}
+
+.toggle:focus {
+  outline: 0;
+}
+
+/* Specific styling with cards */
+
+.monster--image {
+  width: 95%;
+  transition: all 0.3s ease-in;
+}
+
+/* enemy cards adjustement */
+.monster--container.enemy {
+  background-color: #f4f4f49d;
+}
+.monster--image.enemy {
+  max-width: 80%;
+
+  padding: 1rem;
+}
+.enemy--info {
+  width: 60%;
+  font-size: 2rem;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* toggle cards styling */
+
+.monster--container.active {
+  background-color: #f4f4f4;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+.monster--container .fa-times {
+  display: none;
+}
+.monster--container.active .toggle .fa-times {
+  color: #fff;
+  display: block;
+}
+.monster--container.active .toggle .fa-chevron-down {
+  display: none;
+}
+.monster--container.active .toggle {
+  background-color: #9fa4a8;
+  border: 0;
+}
+
+.monster--card {
+  display: none;
+}
+
+.monster--container.active .monster--card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.monster--info--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
