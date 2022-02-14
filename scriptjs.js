@@ -61,7 +61,7 @@ console.log(itemCardsArr);
 async function getData(specificData, array) {
   const res = await fetch(`${API_URL}/${specificData}`);
   const data = await res.json();
-  console.log(data);
+
   Object.entries(data).forEach(([key, value]) => array.push(value));
 }
 

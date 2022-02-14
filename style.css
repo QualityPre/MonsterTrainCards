@@ -16,7 +16,7 @@ body {
 
 body::before {
   content: '';
-  background-image: url('/background.jpg');
+  background-image: url('/imgs/background.jpg');
   background-repeat: repeat-y;
 
   background-size: 100vw;
