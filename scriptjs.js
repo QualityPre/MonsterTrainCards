@@ -1,32 +1,32 @@
-'use strict';
+"use strict";
 //constants and element selection
 
 const API_URL = `https://attach-cors.herokuapp.com/https://www.mt-api.tech/api/v1`;
-const MONSTER_DATA = 'creature-cards';
-const ENEMIES_DATA = 'enemies';
-const SPELL_DATA = 'spell-cards';
-const ITEM_DATA = 'artifacts';
-const sectionMonsterCardsEl = document.querySelector('.monster--cards');
-const allMonstersBtnEl = document.querySelector('.btn--monster--cards--all');
-const allSpellsBtnEl = document.querySelector('.btn--spell--cards--all');
-const allEnemyBtnEl = document.querySelector('.btn--enemy--cards--all');
-const allItemBtnEl = document.querySelector('.btn--items--all');
-const sortBtns = document.querySelectorAll('.link');
+const MONSTER_DATA = "creature-cards";
+const ENEMIES_DATA = "enemies";
+const SPELL_DATA = "spell-cards";
+const ITEM_DATA = "artifacts";
+const sectionMonsterCardsEl = document.querySelector(".monster--cards");
+const allMonstersBtnEl = document.querySelector(".btn--monster--cards--all");
+const allSpellsBtnEl = document.querySelector(".btn--spell--cards--all");
+const allEnemyBtnEl = document.querySelector(".btn--enemy--cards--all");
+const allItemBtnEl = document.querySelector(".btn--items--all");
+const sortBtns = document.querySelectorAll(".link");
 
 //Header///
-document.addEventListener('click', e => {
-  const isDropdownButton = e.target.matches('[data-dropdown-button]');
+document.addEventListener("click", (e) => {
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
 
-  if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return;
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
 
   let currentDropdown;
   if (isDropdownButton) {
-    currentDropdown = e.target.closest('[data-dropdown]');
-    currentDropdown.classList.toggle('active');
+    currentDropdown = e.target.closest("[data-dropdown]");
+    currentDropdown.classList.toggle("active");
   }
-  document.querySelectorAll('[data-dropdown].active').forEach(dropdown => {
+  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
     if (dropdown === currentDropdown) return;
-    dropdown.classList.remove('active');
+    dropdown.classList.remove("active");
   });
 });
 
@@ -78,32 +78,32 @@ const showAll = function (array, type) {
   toggleCard();
 };
 
-sortBtns.forEach(btn =>
-  btn.addEventListener('click', e => {
+sortBtns.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
     if (!btn.dataset.all) return;
-    if (btn.dataset.all == 'enemy') showAll(enemyCardsArr, 1);
-    if (btn.dataset.all == 'item') showAll(itemCardsArr, 3);
-    if (btn.dataset.all == 'monster') showAll(monsterCardsArr, 2);
-    if (btn.dataset.all == 'spell') showAll(spellCardsArr, 2);
+    if (btn.dataset.all == "enemy") showAll(enemyCardsArr, 1);
+    if (btn.dataset.all == "item") showAll(itemCardsArr, 3);
+    if (btn.dataset.all == "monster") showAll(monsterCardsArr, 2);
+    if (btn.dataset.all == "spell") showAll(spellCardsArr, 2);
   })
 );
 
 // rarity
 
-sortBtns.forEach(btn =>
-  btn.addEventListener('click', e => {
+sortBtns.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
     if (!btn.dataset.rarity) return;
     clearSection(sectionMonsterCardsEl);
     const rarity = +btn.dataset.rarity;
-    if (btn.dataset.card === 'monster') sortCards(monsterCardsArr, rarity);
-    else if (btn.dataset.card === 'spell') sortCards(spellCardsArr, rarity);
+    if (btn.dataset.card === "monster") sortCards(monsterCardsArr, rarity);
+    else if (btn.dataset.card === "spell") sortCards(spellCardsArr, rarity);
     toggleCard();
   })
 );
 
 //cost
-sortBtns.forEach(btn =>
-  btn.addEventListener('click', e => {
+sortBtns.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
     if (!btn.dataset.cost) return;
     clearSection(sectionMonsterCardsEl);
     const cost = +btn.dataset.cost;
@@ -113,7 +113,7 @@ sortBtns.forEach(btn =>
 );
 
 function getMonsterCardInfo(cards) {
-  cards.forEach(card => {
+  cards.forEach((card) => {
     let objectCard = card;
     objectCard = {
       name: card.cardName,
@@ -127,7 +127,7 @@ function getMonsterCardInfo(cards) {
 }
 
 function getEnemyCardInfo(cards) {
-  cards.forEach(card => {
+  cards.forEach((card) => {
     let objectCard = card;
     objectCard = {
       name: card.enemyName,
@@ -141,7 +141,7 @@ function getEnemyCardInfo(cards) {
   });
 }
 function getItemCardInfo(cards) {
-  cards.forEach(card => {
+  cards.forEach((card) => {
     let objectCard = card;
     objectCard = {
       name: card.artifactName,
@@ -155,7 +155,7 @@ function getItemCardInfo(cards) {
 }
 
 function getSpellCardInfo(cards) {
-  cards.forEach(card => {
+  cards.forEach((card) => {
     let objectCard = card;
     objectCard = {
       name: card.cardName,
@@ -170,7 +170,7 @@ function getSpellCardInfo(cards) {
 }
 
 function sortCards(array, rarityValue, costValue) {
-  array.filter(card => {
+  array.filter((card) => {
     if (rarityValue) {
       if (card.rarity === rarityValue) {
         let objectCard = card;
@@ -215,7 +215,7 @@ function renderMonsterCards(data) {
       <i class="fas fa-times"></i>
     </button>
   </div>`;
-  sectionMonsterCardsEl.insertAdjacentHTML('beforeend', markup);
+  sectionMonsterCardsEl.insertAdjacentHTML("beforeend", markup);
 }
 
 function renderEnemyCards(data) {
@@ -235,11 +235,11 @@ function renderEnemyCards(data) {
     <i class="fas fa-times"></i>
   </button>
 </div>`;
-  sectionMonsterCardsEl.insertAdjacentHTML('beforeend', markup);
+  sectionMonsterCardsEl.insertAdjacentHTML("beforeend", markup);
 }
 
 function renderItemCards(data) {
-  const markup = `<div class="monster--container enemy">
+  const markup = ` <div class="monster--container enemy ">
   <img class="monster--image enemy" src="${data.image}" alt="${data.name}" />
   <h2 class="monster--name">${data.name}</h2>
   <div class="monster--card">
@@ -254,22 +254,36 @@ function renderItemCards(data) {
     <i class="fas fa-times"></i>
   </button>
 </div>`;
-  sectionMonsterCardsEl.insertAdjacentHTML('beforeend', markup);
+  sectionMonsterCardsEl.insertAdjacentHTML("beforeend", markup);
 }
 
 // Helper functions
 
 function clearSection(element) {
-  element.innerHTML = '';
+  element.innerHTML = "";
 }
 
 function toggleCard() {
-  const toggleEl = document.querySelectorAll('.toggle');
-  toggleEl.forEach(btn =>
-    btn.addEventListener('click', () => {
-      const parent = btn.closest('.monster--container');
-      parent.classList.toggle('active');
+  const toggleEl = document.querySelectorAll(".toggle");
+  toggleEl.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".monster--container");
+      parent.classList.toggle("active");
     })
   );
 }
 toggleCard();
+// MIXIT UP
+
+//swiper
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  grid: {
+    rows: 3,
+  },
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});

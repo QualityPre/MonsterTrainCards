@@ -8,9 +8,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     />
+    <link rel="stylesheet" href="swiper-bundle.min.css">
 
     <link rel="stylesheet" href="style.css" />
     <script src="scriptjs.js" defer></script>
+    <script src="mixitup.min.js" defer></script>
+    
     <title>Monster</title>
   </head>
   <body>
@@ -71,8 +74,10 @@
         
       </div>
     </header>
-    <section class="monster--cards">
-      <h1 class="title">Monster Cards</h1>
+    <h1 class="title">Monster Cards</h1>
+    <div class="swiper mySwiper">
+    <section class="monster--cards ">
+      
 
       <!-- <div class="monster--container">
         <img class="monster--image" src="/artifact.png" alt="${data.name}" />
@@ -106,5 +111,8 @@
 
 
           </section>
+          <div class="swiper-pagination"></div>
+        </div>
+        <script src="swiper-bundle.min.js"></script>
   </body>
 </html>
